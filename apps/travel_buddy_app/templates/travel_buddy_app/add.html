@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Add Trip</title>
+</head>
+<body>
+	<a href="{% url 'dashboard' %}">Home</a>
+	<a href="{% url 'logout' %}">Logout</a>
+	<h1>Add a Trip</h1>
+	<form action="{% url 'add_trip' %}" method="POST">
+		{% csrf_token %}
+		Destination: <input type="text" name="destination"><br><br>
+		Description: <input type="text" name="description"><br><br>
+		Travel Date From: <input type="text" name="travel_date_from"><br><br>
+		Travel Date To: <input type="text" name="travel_date_to"><br><br>
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

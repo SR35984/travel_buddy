@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Register</title>
+</head>
+<body>
+	<div class="wrapper">
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<h1>Welcome!</h1>
+		<form class="topform" action="{% url 'register' %}" method="post">
+			{% csrf_token %}
+			<h3>Register</h3>
+			<p>Name:</p>
+			<input type="text" name="name" />
+			<p>Username:</p>
+			<input type="text" name="username" />
+			<p>Password:</p>
+			<input type="password" name="password" />
+			<p>Confirm PW:</p>
+			<input type="password" name="password_confirmation" />
+			<p class="btnpar">
+				<input type="submit" value="Register" />
+			</p>
+		</form>
+		<form class="btform" action="{% url 'login' %}" method="post">
+			{% csrf_token %}
+			<h3>Login</h3>
+			<p>Username:</p>
+			<input type="text" name="username" />
+			<p>Password:</p>
+			<input type="password" name="password" />
+			<p class="btnpar">
+				<input type="submit" value="Login" />
+			</p>
+		</form>
+	</div>
+</body>
+</html>
